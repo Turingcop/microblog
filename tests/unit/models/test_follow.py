@@ -1,11 +1,10 @@
+"""
+Contains tests for app.models.User class
+"""
 # pylint: disable=redefined-outer-name
 from datetime import datetime, timedelta
-from unittest import mock
-import pytest
 from app.models import User, Post
 from app import db
-
-...
 
 def test_follow(test_app): # pylint: disable=unused-argument
     """
@@ -74,3 +73,4 @@ def test_follow_posts(test_app): # pylint: disable=unused-argument
     assert follow2 == [post2, post3]
     assert follow3 == [post3, post4]
     assert follow4 == [post4]
+    
