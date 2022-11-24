@@ -1,3 +1,5 @@
+[![Python package](https://github.com/Turingcop/microblog/actions/workflows/python-package.yml/badge.svg)](https://github.com/Turingcop/microblog/actions/workflows/python-package.yml)
+
 Microblog
 ===================
 
