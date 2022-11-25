@@ -1,0 +1,24 @@
+version: "3"
+services:
+  test:
+    image: microblog:test
+    hostname: microblog-test
+    volumes:
+      - ./:/home/microblog/app
+  prod:
+    image: turingcop/microblog:1.0.0-prod
+    hostname: microblog
+    ports:
+      - 8000:5000
+    depends_on:
+      - mysql
+    environment:
+      DATABASE_URL: mysql+pymysql://microblog:microblog@mysql/microblog
+  mysql:
+    image: mysql/mysql-server:5.7
+    hostname: mysql
+    environment:
+      MYSQL_DATABASE: microblog
+      MYSQL_USER: microblog
+      MYSQL_PASSWORD: microblog
+      MYSQL_RANDOM_ROOT_PASSWORD: "yes"
