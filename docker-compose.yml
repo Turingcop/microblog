@@ -1,4 +1,6 @@
 version: "3"
+networks:
+  dbwebb:
 services:
   test:
     image: microblog:test
@@ -6,15 +8,19 @@ services:
     volumes:
       - ./:/home/microblog/app
   prod:
+    networks:
+      dbwebb:
     image: turingcop/microblog:1.0.0-prod
     hostname: microblog
     ports:
       - 8000:5000
-    depends_on:
-      - mysql
+    links:
+      - mysql:mysql
     environment:
       DATABASE_URL: mysql+pymysql://microblog:password@mysql/microblog
   mysql:
+    networks:
+      dbwebb:
     image: mysql/mysql-server:5.7
     hostname: mysql
     environment:
