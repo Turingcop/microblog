@@ -10,7 +10,7 @@ on:
     branches: [ "master" ]
 
 jobs:
-  build:
+  test:
 
     runs-on: ubuntu-latest
     strategy:
@@ -33,3 +33,7 @@ jobs:
     - name: Test
       run: |
         make test
+    build:
+      needs: test
+      uses: ./github/workflows/dockerbuild.yml
+      secrets: inherit

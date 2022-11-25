@@ -8,4 +8,4 @@ docker run --name microblog -d -p 8000:5000 --rm -e SECRET_KEY=my-secret-key \
     -e DATABASE_URL=mysql+pymysql://microblog:password@dbserver/microblog \
     microblog:1.0.0-prod
 
-docker run --name microblog -v $(pwd)/microblog:/microblog -d -p 8000:5000 --rm microblog:test
+docker run -v $(pwd):/home/microblog/app microblog:test
