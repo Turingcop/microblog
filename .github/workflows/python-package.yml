@@ -34,5 +34,5 @@ jobs:
         make test
   build:
     needs: test
-    uses: ./github/workflows/dockerbuild.yml
+    uses: ./.github/workflows/dockerbuild.yml
     secrets: inherit
