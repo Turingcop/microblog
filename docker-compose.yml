@@ -13,12 +13,12 @@ services:
     depends_on:
       - mysql
     environment:
-      DATABASE_URL: mysql+pymysql://microblog:microblog@mysql/microblog
+      DATABASE_URL: mysql+pymysql://microblog:password@mysql/microblog
   mysql:
     image: mysql/mysql-server:5.7
     hostname: mysql
     environment:
-      MYSQL_DATABASE: microblog
-      MYSQL_USER: microblog
-      MYSQL_PASSWORD: microblog
       MYSQL_RANDOM_ROOT_PASSWORD: "yes"
+      MYSQL_DATABASE: "microblog"
+      MYSQL_USER: "microblog"
+      MYSQL_PASSWORD: "password"
