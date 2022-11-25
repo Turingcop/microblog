@@ -11,7 +11,6 @@ on:
 
 jobs:
   test:
-
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -33,7 +32,7 @@ jobs:
     - name: Test
       run: |
         make test
-    build:
-      needs: test
-      uses: ./github/workflows/dockerbuild.yml
-      secrets: inherit
+  build:
+    needs: test
+    uses: ./github/workflows/dockerbuild.yml
+    secrets: inherit
