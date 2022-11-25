@@ -16,18 +16,13 @@ jobs:
     name: build
     runs-on: ubuntu-latest
     steps:
-      - name: Check out the repo
+      - name: checkout
         uses: actions/checkout@v3
       - name: Log in to Docker hub
         uses: docker/login-action@v2
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
-      - name: Extract metadata
-        id: meta
-        uses: docker/metadata-action@v4
-        with:
-          images: turingcop/microblog
       - name: Build and push image
         uses: docker/build-push-action@v3
         with:
