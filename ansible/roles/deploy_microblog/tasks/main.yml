@@ -1,0 +1,9 @@
+---
+- name: Run container
+  docker_container:
+    name: microblog
+    image: turingcop/microblog:master
+    ports:
+      - 8000:5000
+    env:
+      DATABASE_URL: mysql+pymysql://microblog:password@{{ groups['database'][0] }}:3306/microblog
